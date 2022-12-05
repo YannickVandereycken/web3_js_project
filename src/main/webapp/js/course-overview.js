@@ -1,4 +1,10 @@
-const renderCourse = () => {
+const fetchCourses = async () => {
+    const response =  await fetch("http://localhost:8080/Controller?command=Overview")
+    const course = await response.json()
+    return course
+}
+
+const renderCourse = (courses) => {
     const id = "courses"
     clearElement(id)
     course.forEach((course) => {
@@ -15,4 +21,9 @@ const renderCourse = () => {
     })
 }
 
-renderCourse()
+const fetchAndRenderCourses = async () => {
+    const courses = await fetchCourses()
+    renderCourse(courses)
+}
+
+setInterval(fetchAndRenderCourses, 1000)
