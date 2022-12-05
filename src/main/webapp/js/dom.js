@@ -7,8 +7,9 @@ const clearElement = (id) => {
         "            </tr>"
 }
 const addTextById = (text,id) => {
+    console.log(text,id)
     const p = document.createElement("p")
-    const tx = document.createTextNode(text)
+    const tx = document.createTextNode(text.toString())
     // const text = document.createTextNode(`Woef is een hond van 5 jaar oud.`)
     p.appendChild(tx)
     document.getElementById(id).appendChild(p)
