@@ -1,10 +1,6 @@
 const clearElement = (id) => {
     const element = document.getElementById(id)
-    element.innerHTML = "<caption>PBA TI</caption>\n" +
-        "            <tr>\n" +
-        "                <th>Name</th>\n" +
-        "                <th>Lectors</th>\n" +
-        "            </tr>"
+    element.innerHTML = ""
 }
 const addTextById = (text,id) => {
     console.log(text,id)
