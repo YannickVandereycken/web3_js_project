@@ -28,6 +28,10 @@ div#container {
     margin-top: 10px;
 }
 
+div#course_add{
+    color: var(--colorhighlight);
+}
+
 footer {
     background-color: #b99703;
 }

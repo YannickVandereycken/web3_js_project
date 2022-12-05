@@ -10,7 +10,7 @@ const renderCourse = (courses) => {
     courses.forEach((course) => {
         const tr = document.createElement("tr")
         const tdname = document.createElement("td")
-        const name = document.createTextNode( `${course.name}` )
+        const name = document.createTextNode(`${course.name}`)
         tdname.appendChild(name)
         const tdlectors = document.createElement("td")
         const lectors = document.createTextNode(`${course.lector}`)
