@@ -7,13 +7,13 @@ const fetchCourses = async () => {
 const renderCourse = (courses) => {
     const id = "courses"
     clearElement(id)
-    course.forEach((course) => {
+    courses.forEach((course) => {
         const tr = document.createElement("tr")
         const tdname = document.createElement("td")
         const name = document.createTextNode( `${course.name}` )
         tdname.appendChild(name)
         const tdlectors = document.createElement("td")
-        const lectors = document.createTextNode(`${course.lectors}`)
+        const lectors = document.createTextNode(`${course.lector}`)
         tdlectors.appendChild(lectors)
         tr.appendChild(tdname)
         tr.appendChild(tdlectors)
