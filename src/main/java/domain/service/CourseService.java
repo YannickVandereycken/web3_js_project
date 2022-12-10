@@ -15,6 +15,8 @@ public class CourseService {
         this.add(web3);
         Course web4 = new Course("Webontwikkeling 4", "Johan Pieck, Elke Steegmans", 3, 4);
         this.add(web4);
+        Course testing = new Course("Software Testing", "Johan Pieck, David Vandenbroeck", 2, 1);
+        this.add(testing);
     }
 
     public void add(Course course) {
@@ -27,19 +29,20 @@ public class CourseService {
         return courses;
     }
 
-    public boolean delete (int id) {
-        for (Course course: courses) {
+    public boolean delete(int id) {
+        for (Course course : courses) {
             if (course.getId() == id) {
                 courses.remove(courses.indexOf(course));
                 return true;
             }
-        };
+        }
+        ;
         return false;
     }
 
-    public List<Course> getCoursesOfLector (String name) {
+    public List<Course> getCoursesOfLector(String name) {
         List<Course> result = new ArrayList<Course>();
-        for (Course course: courses) {
+        for (Course course : courses) {
             if (course.getLector().contains(name)) {
                 result.add(course);
             }
@@ -47,19 +50,17 @@ public class CourseService {
         return result;
     }
 
-    public List<String> getLectors () {
+    public List<String> getLectors() {
         List<String> result = new ArrayList<String>();
-        for (Course course: courses) {
+        for (Course course : courses) {
             String lector = course.getLector();
             String[] lectors = lector.split(",");
-            for (int i= 0; i<lectors.length; i++) {
-                if(! result.contains(lectors[i].trim())) {
+            for (int i = 0; i < lectors.length; i++) {
+                if (!result.contains(lectors[i].trim())) {
                     result.add(lectors[i].trim());
                 }
             }
         }
         return result;
     }
-
-
- }
+}
