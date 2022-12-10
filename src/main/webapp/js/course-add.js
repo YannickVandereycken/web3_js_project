@@ -28,7 +28,6 @@ const handleAddCourse = async () => {
         error = true
     }
 
-
     if (!error) {
         course_add = {name, lector, credits, semester}
 

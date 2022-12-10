@@ -1,5 +1,5 @@
 const fetchCourses = async () => {
-    const response =  await fetch("http://localhost:8080/Controller?command=Overview")
+    const response = await fetch("http://localhost:8080/Controller?command=Overview")
     const course = await response.json()
     return course
 }
@@ -35,17 +35,17 @@ const renderCourse = (courses) => {
 const fetchAndRenderCourses = async () => {
     const courses = await fetchCourses()
     renderCourse(courses)
+    document
+        .getElementById("course")
+        .addEventListener("mouseover", (event) => {
+            // highlight the mouseover target
+            event.target.style.background = "orange";
+
+            // reset the color after a short delay
+            setTimeout(() => {
+                event.target.style.background = "";
+            }, 500);
+        }, false);
 }
-const hover = document.getElementById("course")
-hover.addEventListener("mouseover", (event) => {
-    // highlight the mouseover target
-    event.target.style.background = "orange";
-
-    // reset the color after a short delay
-    setTimeout(() => {
-        event.target.style.background = "";
-    }, 500);
-}, false);
-
 
 setInterval(fetchAndRenderCourses, 1000)

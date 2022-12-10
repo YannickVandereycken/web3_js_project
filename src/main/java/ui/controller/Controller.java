@@ -34,12 +34,11 @@ public class Controller extends HttpServlet {
         String destination = "Home";
         String command = request.getParameter("command");
         if (command != null) {
-                RequestHandler handler = handlerFactory.getHandler(command, service);
-                destination = handler.handleRequest(request, response);
+            RequestHandler handler = handlerFactory.getHandler(command, service);
+            destination = handler.handleRequest(request, response);
         }
 
         response.setContentType("application/json");
         response.getWriter().write(destination);
     }
-
 }
