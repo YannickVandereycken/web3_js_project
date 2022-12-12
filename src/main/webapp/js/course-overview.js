@@ -26,7 +26,7 @@ const renderCourse = (courses) => {
             getInformation(course, "information")
         }, false);
         tr.addEventListener("mouseout", (event) => {
-            // highlight the mouseover target
+            // highlight off the mouseover target
             document.getElementById(`${course.id}`).style.background = "";
         }, false);
         const tdname = document.createElement("td")
@@ -41,11 +41,39 @@ const renderCourse = (courses) => {
     })
 }
 
-const fetchAndRenderCourses = async () => {
-    const courses = await fetchCourses()
-    renderCourse(courses)
+// document
+//     .getElementById("search")
+//     .addEventListener("submit", (event) => {
+//         event.preventDefault()
+//         // renderCourse(searched)
+//     })
 
+const fetchAndRenderCourses = async () => {
+    let courses
+    let name = document.getElementById("name").value
+    console.log(name)
+    if (name.length === 0) {
+        courses = await fetchCourses()
+    } else {
+        courses = await handleSearchCourse(name)
+    }
+    renderCourse(courses)
 }
+
+const handleSearchCourse = async (name) => {
+    let response = await fetch("http://localhost:8080/Controller?command=Search", {
+        method: "POST",
+        headers: {
+            // Accept Header tells the API that it is expecting the response in the specified media type e.g. application/json
+            Accept: "application/json",
+            // Content-Type tells the API about the media type of the request being sent in the request body e.g. application/json
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(name),
+    })
+    return await response.json()
+}
+
 
 const getInformation = (course, id) => {
     clearElement(id)

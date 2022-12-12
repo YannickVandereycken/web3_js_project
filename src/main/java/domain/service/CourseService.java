@@ -15,7 +15,7 @@ public class CourseService {
         this.add(web3);
         Course web4 = new Course("Webontwikkeling 4", "Johan Pieck, Elke Steegmans", 3, 4);
         this.add(web4);
-        Course testing = new Course("Software Testing", "Johan Pieck, David Vandenbroeck", 2, 1);
+        Course testing = new Course("Software Testing", "Johan Pieck, David Vandenbroeck", 2, 3);
         this.add(testing);
     }
 
@@ -29,6 +29,16 @@ public class CourseService {
         return courses;
     }
 
+    public ArrayList<Course> searchCourse(String name) {
+        ArrayList<Course> searched = new ArrayList<>();
+        for (Course course : courses) {
+            if (course.getName().toLowerCase().contains(name.toLowerCase())) {
+                searched.add(course);
+            }
+        }
+        return searched;
+    }
+
     public boolean delete(int id) {
         for (Course course : courses) {
             if (course.getId() == id) {
@@ -36,7 +46,6 @@ public class CourseService {
                 return true;
             }
         }
-        ;
         return false;
     }
 
