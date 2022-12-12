@@ -1,7 +1,6 @@
 const fetchCourses = async () => {
     const response = await fetch("http://localhost:8080/Controller?command=Overview")
-    const course = await response.json()
-    return course
+    return await response.json()
 }
 
 const renderCourse = (courses) => {
