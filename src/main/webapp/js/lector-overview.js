@@ -43,24 +43,6 @@ setInterval(fetchAndRenderCourses, 1000)
 
 //poging voor sorting
 
-const sortLectors = (lectors) => {
-    let sorted = []
-    lectors.forEach((lector) => {
-        const l = lector.split(" ")
-        const name = l[1]
-        const firstname = l[0]
-        console.log(name)
-        console.log(firstname)
-        let lec = {name, firstname}
-        console.log(lec)
-        sorted.push(lec)
-    })
-    console.log(sorted)
-    sorted.sort(compare)
-    console.log(sorted)
-    return sorted
-}
-
 function compare(a, b) {
     if (a.name < b.name) {
         return -1;
@@ -69,4 +51,20 @@ function compare(a, b) {
         return 1;
     }
     return 0;
+}
+
+const sortLectors = (lectors) => {
+    let sorted = []
+    lectors.forEach((lector) => {
+        const l = lector.split(" ")
+        const name = l[1]
+        const firstname = l[0]
+        let lec = {name, firstname}
+        console.log(lec)
+        sorted.push(lec)
+    })
+    console.log(sorted)
+    sorted.sort(compare)
+    console.log(sorted)
+    return sorted
 }
