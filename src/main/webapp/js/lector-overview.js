@@ -50,11 +50,10 @@ const sortLectors = (lectors) => {
         const name = l[1]
         const firstname = l[0]
         let lec = {name, firstname}
-        console.log(lec)
+        // console.log(lec)
         sorted.push(lec)
     })
-    console.log(sorted)
     sorted.sort(compare)
-    console.log(sorted)
+    // console.log(sorted)
     return sorted
 }
