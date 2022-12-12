@@ -16,17 +16,14 @@ const renderCourse = (lectors) => {
     trheader.appendChild(tdnameheader)
     trheader.appendChild(tdfirstnameheader)
     document.getElementById(id).appendChild(trheader)
-    sortLectors(lectors)
-    lectors.forEach((lector) => {
-        const l = lector.split(" ")
-        const lname = l[1]
-        const lfirst = l[0]
+    let sorted = sortLectors(lectors)
+    sorted.forEach((lector) => {
         const tr = document.createElement("tr")
         const tdname = document.createElement("td")
-        const name = document.createTextNode(`${lname}`)
+        const name = document.createTextNode(`${lector.name}`)
         tdname.appendChild(name)
         const tdlectors = document.createElement("td")
-        const lectors = document.createTextNode(`${lfirst}`)
+        const lectors = document.createTextNode(`${lector.firstname}`)
         tdlectors.appendChild(lectors)
         tr.appendChild(tdname)
         tr.appendChild(tdlectors)
@@ -41,16 +38,9 @@ const fetchAndRenderCourses = async () => {
 
 setInterval(fetchAndRenderCourses, 1000)
 
-//poging voor sorting
-
+//sorting
 function compare(a, b) {
-    if (a.name < b.name) {
-        return -1;
-    }
-    if (a.name > b.name) {
-        return 1;
-    }
-    return 0;
+    return a.name.localeCompare(b.name)
 }
 
 const sortLectors = (lectors) => {
