@@ -28,7 +28,7 @@ div#container {
     margin-top: 10px;
 }
 
-div#course_add{
+div#course_add {
     color: var(--colorhighlight);
 }
 
@@ -235,6 +235,10 @@ input {
         width: 100px;
         text-align: right;
         margin-right: 10px;
+    }
+
+    label.has-error {
+        width: auto;
     }
 
     input[type="text"], input[type="email"], input[type="password"], textarea {

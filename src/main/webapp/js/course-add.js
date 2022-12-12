@@ -4,27 +4,28 @@ let error = false
 const handleAddCourse = async () => {
     const name = document.getElementById("name").value
     console.log(name)
+    error = false
+    clearElement("error_name")
+    clearElement("error_lectors")
+    clearElement("error_credits")
+    clearElement("error_semester")
     if (name == null || name.length === 0) {
-        clearElement("error_name")
-        addTextById("Name may not be empty", "error_name")
+        fillTextById("Name may not be empty", "error_name")
         error = true
     }
     const lector = document.getElementById("lectors").value
-    if (lector == null || name.length === 0) {
-        clearElement("error_lectors")
-        addTextById("Lectors may not be empty", "error_lectors")
+    if (lector == null || lector.length === 0) {
+        fillTextById("Lectors may not be empty", "error_lectors")
         error = true
     }
     const credits = document.getElementById("credits").value
-    if (credits == null || name.length === 0) {
-        clearElement("error_credits")
-        addTextById("Credits may not be empty", "error_credits")
+    if (credits == null || credits.length === 0 || credits < 3 || credits > 30) {
+        fillTextById("Credits must be between 3 and 30", "error_credits")
         error = true
     }
     const semester = document.getElementById("semester").value
-    if (semester == null || name.length === 0) {
-        clearElement("error_semester")
-        addTextById("Semester may not be empty", "error_semester")
+    if (semester == null || semester.length === 0 || semester < 1 || semester > 6) {
+        fillTextById("Semester must be between 1 and 6", "error_semester")
         error = true
     }
 

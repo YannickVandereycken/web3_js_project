@@ -10,3 +10,9 @@ const addTextById = (text, id) => {
     p.appendChild(tx)
     document.getElementById(id).appendChild(p)
 }
+
+const fillTextById = (text, id) => {
+    console.log(text, id)
+    const tx = document.createTextNode(text.toString())
+    document.getElementById(id).appendChild(tx)
+}

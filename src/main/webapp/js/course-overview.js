@@ -41,17 +41,9 @@ const renderCourse = (courses) => {
     })
 }
 
-// document
-//     .getElementById("search")
-//     .addEventListener("submit", (event) => {
-//         event.preventDefault()
-//         // renderCourse(searched)
-//     })
-
 const fetchAndRenderCourses = async () => {
     let courses
     let name = document.getElementById("name").value
-    console.log(name)
     if (name.length === 0) {
         courses = await fetchCourses()
     } else {
