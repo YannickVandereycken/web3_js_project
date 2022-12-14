@@ -18,6 +18,14 @@ const handleAddCourse = async () => {
         fillTextById("Lectors may not be empty", "error_lectors")
         error = true
     }
+    if (lector.trim().length=== 0){
+        fillTextById("Lectors may not contain only spaces", "error_lectors")
+        error = true
+    }
+    if( /\s/.test(lector.trim()) === false){
+        fillTextById("Lectors should have a first name and a last name", "error_lectors")
+        error=true
+    }
     const credits = document.getElementById("credits").value
     if (credits == null || credits.length === 0 || credits < 3 || credits > 30) {
         fillTextById("Credits must be between 3 and 30", "error_credits")
