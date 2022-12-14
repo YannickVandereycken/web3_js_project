@@ -29,8 +29,9 @@ const renderCourse = (courses) => {
             document.getElementById(`${course.id}`).style.background = "";
             setNoInformation("information")
         }, false);
-        tr.addEventListener("dblclick", (event)=>{
-            const id=document.getElementById(`${course.id}`)
+        tr.addEventListener("dblclick", (event) => {
+            const id = document.getElementById(`${course.id}`).id
+            console.log(id)
             handleDeleteCourse(id)
         }, false);
         const tdname = document.createElement("td")
@@ -70,16 +71,16 @@ const handleSearchCourse = async (name) => {
     return await response.json()
 }
 
-const handleDeleteCourse = async (id)=>{
-    let response = await fetch("http://localhost:8080/Controller?command=Delete",{
-        method:"POST",
-        headers:{
+const handleDeleteCourse = async (id) => {
+    let response = await fetch("http://localhost:8080/Controller?command=Delete", {
+        method: "POST",
+        headers: {
             // Accept Header tells the API that it is expecting the response in the specified media type e.g. application/json
             Accept: "application/json",
             // Content-Type tells the API about the media type of the request being sent in the request body e.g. application/json
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(id)
+        body: JSON.stringify(id),
     })
     return await response.json()
 }
