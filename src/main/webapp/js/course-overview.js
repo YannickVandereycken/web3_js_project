@@ -71,16 +71,7 @@ const handleSearchCourse = async (name) => {
 }
 
 const handleDeleteCourse = async (id)=>{
-    let response = await fetch("http://localhost:8080/Controller?command=Delete",{
-        method:"POST",
-        headers:{
-            // Accept Header tells the API that it is expecting the response in the specified media type e.g. application/json
-            Accept: "application/json",
-            // Content-Type tells the API about the media type of the request being sent in the request body e.g. application/json
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(id)
-    })
+    let response = await fetch(`http://localhost:8080/Controller?command=Delete&id=${id}`)
     return await response.json()
 }
 
