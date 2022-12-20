@@ -29,8 +29,8 @@ const renderCourse = (courses) => {
             document.getElementById(`${course.id}`).style.background = "";
             setNoInformation("information")
         }, false);
-        tr.addEventListener("dblclick", (event)=>{
-            const id=document.getElementById(`${course.id}`)
+        tr.addEventListener("dblclick", (event) => {
+            const id = document.getElementById(`${course.id}`).id
             handleDeleteCourse(id)
         }, false);
         const tdname = document.createElement("td")
