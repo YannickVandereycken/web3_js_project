@@ -28,7 +28,7 @@ div#container {
     margin-top: 10px;
 }
 
-div#course_add {
+div#course_add, div#information {
     color: var(--colorhighlight);
 }
 

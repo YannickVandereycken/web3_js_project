@@ -15,14 +15,17 @@ const handleAddCourse = async () => {
     }
     const lector = document.getElementById("lectors").value
     if (lector == null || lector.length === 0) {
-        fillTextById("Lectors may not be empty", "error_lectors")
+        clearElement("error_lectors")
+        fillTextById("Lectors should have a first name and a last name", "error_lectors")
         error = true
     }
     if (lector.trim().length === 0) {
-        fillTextById("Lectors may not contain only spaces", "error_lectors")
+        clearElement("error_lectors")
+        fillTextById("Lectors should have a first name and a last name", "error_lectors")
         error = true
     }
     if (/\s/.test(lector.trim()) === false) {
+        clearElement("error_lectors")
         fillTextById("Lectors should have a first name and a last name", "error_lectors")
         error = true
     }
